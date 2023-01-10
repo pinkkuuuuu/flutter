@@ -1,0 +1,50 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  TextEditingController textbox =new TextEditingController();
+  List<int> arrtextbox =[];
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:Scaffold(
+        appBar: AppBar(title: Text("text box"),),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: textbox,
+                decoration: InputDecoration(
+                  labelText: "Enter Marks",
+
+                ),
+              ),
+            ),
+           Padding(
+             padding: const EdgeInsets.all(20.0),
+             child: ElevatedButton(onPressed: () {
+               int marks=int.parse(textbox.text);
+               arrtextbox.add(marks);
+                print(arrtextbox);
+             }, child:Text("Save")),
+           ),
+
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(onPressed: () {
+                print(arrtextbox.reduce((max)));
+              }, child:Text("Max")),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
